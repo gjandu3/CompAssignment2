@@ -22,6 +22,7 @@ function PlayerSword(game, AssetManager) {
 	this.y = 100;
 	this.timer = 0; 
 	this.speed = 200; 
+	this.pick = 1; 
 	this.animation = new Animation(spritesheetsplayer['six'], 400, 200, 1, 0.10, 1, true, .4); 
 }
 
@@ -36,6 +37,7 @@ PlayerSword.prototype.draw = function () {
 PlayerSword.prototype.update = function () {
     this.x += this.game.clockTick * this.speed;
     Entity.prototype.update.call(this);
+    this.choose(this.pick); 
     if (this.collided === true) {
     	this.timer++; 
     }
@@ -56,9 +58,9 @@ PlayerSword.prototype.update = function () {
 }
 
 PlayerSword.prototype.picker = function() {
-	var pick = Math.floor(Math.random() * 8) + 1;
-	this.sword = pick; 
-	this.choose(pick); 
+	this.pick = Math.floor(Math.random() * 8) + 1;
+	this.sword = this.pick; 
+	this.choose(this.pick); 
 }
 
 PlayerSword.prototype.choose = function(number) {

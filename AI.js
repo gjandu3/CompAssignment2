@@ -22,6 +22,7 @@ function AI(game, AssetManager) {
 	this.x = 900; 
 	this.y = 100;
 	this.speed = -200;
+	this.weak = 1; 
 	this.animation = new Animation(spritesheetsai['one'], 400, 200, 1, 0.10, 1, true, .4); 
 }
 
@@ -39,6 +40,7 @@ AI.prototype.update = function () {
 		this.collided = false; 
 		this.timer = 0;
 	}
+	this.choose(this.weak); 
     this.x += this.game.clockTick * this.speed;
     if (this.x <= 350) {
     	this.reset(0); 
@@ -94,9 +96,9 @@ AI.prototype.compare = function (other) {
 
 AI.prototype.selectSword = function(other) {
 	this.x = 900; 
-	var weak = ((other.sword + 5) % 8) + 1;
-	this.sword = weak; 
-	this.choose(weak);  
+	this.weak = ((other.sword + 5) % 8) + 1;
+	this.sword = this.weak; 
+	this.choose(this.weak);  
 	 
 }
 

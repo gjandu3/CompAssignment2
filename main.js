@@ -40,19 +40,19 @@ function stater(Stay, Evolve) {
       Stay.timer = Sx.Stime;
       Stay.collided = Sx.Sc; 
       Stay.sword = Sx.Ssword;
-      //Stay.animation = Sx.Sanime;
+      Stay.pick = Sx.Spick;
       Evolve.x = Sx.Ex;
       Evolve.y = Sx.Ey;
       Evolve.timer = Sx.Etime;
       Evolve.collided = Sx.Ec;
       Evolve.sword = Sx.Esword;
-      //Evolve.animation = Sx.Eanime;
+      Evolve.weak = Sx.Eweak;
   }); 
 
   saveButton.onclick = function () {
     socket.emit("save", { studentname: "Gurkirat Jandu", statename:"sword positions", Sx: Stay.x, Sy: Stay.y, Stime: Stay.timer,
-    Sc: Stay.collided, Ssword: Stay.sword, Sanime: Stay.animation, Ex: Evolve.x, Ey: Evolve.y, Etime: Evolve.timer, Ec: Evolve.collided,
-    Esword: Evolve.sword, Eanime: Evolve.animation}); 
+    Sc: Stay.collided, Ssword: Stay.sword, Spick: Stay.pick, Ex: Evolve.x, Ey: Evolve.y, Etime: Evolve.timer, Ec: Evolve.collided,
+    Esword: Evolve.sword, Eweak: Evolve.weak}); 
   };
 
   loadButton.onclick = function() {
