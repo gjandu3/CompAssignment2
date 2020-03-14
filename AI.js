@@ -41,7 +41,6 @@ AI.prototype.update = function () {
 	}
     this.x += this.game.clockTick * this.speed;
     if (this.x <= 350) {
-    	console.log("this shouldn't happen"); 
     	this.reset(0); 
     }
     Entity.prototype.update.call(this);
@@ -82,7 +81,6 @@ AI.prototype.choose = function(number) {
 }
 
 AI.prototype.compare = function (other) {
-	console.log("compare for ai is called"); 
 	var lowweak = ((other.sword + 5) % 8) + 1;
 	var highweak = ((other.sword + 7) % 8) + 1; 
 	if (lowweak <= this.sword <= highweak) {
@@ -98,7 +96,6 @@ AI.prototype.selectSword = function(other) {
 	this.x = 900; 
 	var weak = ((other.sword + 5) % 8) + 1;
 	this.sword = weak; 
-	console.log("AI Sword: " + this.sword); 
 	this.choose(weak);  
 	 
 }
